@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from "motion/react"
+import { motion as Motion } from "motion/react"
 import { useNavigate } from 'react-router-dom'
 import TopicForm from '../components/TopicForm'
 import Sidebar from '../components/Sidebar'
