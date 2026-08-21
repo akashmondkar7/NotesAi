@@ -190,21 +190,13 @@ function TopicForm({ setResult, setLoading, loading, setError }) {
 function Toggle({ label, checked, onChange }) {
   return (
     <div className='flex items-center gap-4 cursor-pointer select-none' onClick={onChange}>
-      <motion.div
-        animate={{
-          backgroundColor: checked
-            ? "rgba(34,197,94,0.35)"   // green when ON
-            : "rgba(255,255,255,0.15)" // gray when OFF
-        }}
-        transition={{ duration: 0.25 }}
-        className='relative w-12 h-6 rounded-full
+      <div
+        className={`relative w-12 h-6 rounded-full
           border border-white/20
-          backdrop-blur-lg'
+          backdrop-blur-lg ${checked ? "bg-green-500/35" : "bg-white/15"}`}
 
       >
-        <motion.div
-          layout
-          transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        <div
           className=' absolute top-0.5
             h-5 w-5 rounded-full
             bg-white
@@ -216,8 +208,8 @@ function Toggle({ label, checked, onChange }) {
         >
 
 
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       <span className={`text-sm transition-colors ${checked ? "text-green-300" : "text-gray-300"
         }`}>{label}</span>

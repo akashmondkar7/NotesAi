@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { serverUrl } from '../App'
-import { motion as Motion } from "motion/react"
 import { useNavigate } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import FinalResult from '../components/FinalResult'
@@ -51,10 +50,7 @@ setLoading(false)
   return (
     <div className='min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 px-6 py-8'>
 
-      <motion.header
-        initial={{ opacity: 0, y: -15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+      <header
         className="
       mb-10
       rounded-2xl
@@ -75,18 +71,12 @@ setLoading(false)
               </div>
 
 
-      </motion.header>
+      </header>
 
 
       <div className='grid grid-cols-1 lg:grid-cols-4 gap-6'>
-        <AnimatePresence>
-
           {isSidebarOpen && 
-          <motion.div
-          initial={{ x: -320 }}
-          animate={{ x: 0 }}
-          exit={{ x: -320 }}
-          transition={{ type: "spring", stiffness: 260, damping: 30 }}
+          <div
            className='fixed lg:static
             top-0 left-0 z-50 lg:z-auto
             w-72 lg:w-auto
@@ -163,15 +153,10 @@ setLoading(false)
               </div>
             
             
-            </motion.div>}
-        </AnimatePresence>
+            </div>}
 
 
-        <motion.div 
-
-        initial={{ opacity: 0, y: -15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }} 
+        <div
         className='lg:col-span-3
         rounded-2xl
         bg-white
@@ -191,7 +176,7 @@ setLoading(false)
 
 
 
-        </motion.div>
+        </div>
       </div>
 
     </div>

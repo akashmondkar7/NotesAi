@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { motion as Motion } from "motion/react"
 import { useNavigate } from 'react-router-dom'
 import TopicForm from '../components/TopicForm'
 import Sidebar from '../components/Sidebar'
@@ -12,11 +11,7 @@ function Notes() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 px-6 py-8'>
-      <motion.header
-        initial={{ opacity: 0, y: -15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-
+      <header
         className=" mb-10
             rounded-2xl
             bg-black/80 backdrop-blur-xl
@@ -46,23 +41,20 @@ function Notes() {
         </div>
 
 
-      </motion.header>
+      </header>
 
 
-      <motion.div 
-          className="mb-12">
+        <div className="mb-12">
         <TopicForm loading={loading} setResult={setResult} setLoading={setLoading} setError={setError}/>
-      </motion.div>
+      </div>
 
 
       {loading && (
-          <motion.div
-            animate={{ opacity: [0.4, 1, 0.4] }}
-            transition={{ repeat: Infinity, duration: 1.2 }}
+          <div
             className="text-center text-black font-medium mb-6"
           >
             Generating exam-focused notes…
-          </motion.div>
+          </div>
         )}
 
         {error && (
@@ -71,7 +63,7 @@ function Notes() {
           </div>
         )}
 
-    {!result && <motion.div whileHover={{ scale: 1.02 }}
+    {!result && <div
             className="
               h-64
               rounded-2xl
@@ -86,13 +78,10 @@ function Notes() {
               Generated notes will appear here
             </p>
 
-     </motion.div>}
+    </div>}
 
 
-    {result && <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.4 }}
+    {result && <div
      className='flex flex-col
       lg:grid lg:grid-cols-4
       gap-6'>
@@ -113,7 +102,7 @@ function Notes() {
         </div>
 
 
-    </motion.div>
+    </div>
 }
     </div>
   )
