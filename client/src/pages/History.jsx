@@ -9,7 +9,9 @@ import FinalResult from '../components/FinalResult'
 function History() {
   const [topics, setTopics] = useState([])
    const navigate = useNavigate()
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(() =>
+    typeof window !== 'undefined' && window.innerWidth >= 1024
+  );
 const [activeNoteId, setActiveNoteId] = useState(null);
 
   const [selectedNote, setSelectedNote] = useState(null);
@@ -43,16 +45,6 @@ setLoading(false)
 
     
   }
-
-
-
-
-
-  useEffect(() => {
-  if (window.innerWidth >= 1024) {
-    setIsSidebarOpen(true)
-  }
-}, [])
 
 
 
