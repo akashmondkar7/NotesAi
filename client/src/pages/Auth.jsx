@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from "motion/react"
+import { motion as Motion } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
 import { auth, provider } from '../utils/firebase';
@@ -33,7 +33,7 @@ function Auth() {
   }
   return (
     <div className='min-h-screen overflow-hidden bg-white text-black px-8'>
-        <motion.header 
+        <Motion.header 
         initial = {{opacity: 0 , y:-15}}
         animate = {{opacity:1 , y:0}}
         transition={{duration:1.5}}
@@ -50,12 +50,12 @@ function Auth() {
             bg-clip-text text-transparent'>ExamNotes AI</h1>
             <p className='text-sm text-gray-300 mt-1'>AI-powered exam-oriented notes & revision</p>
 
-        </motion.header>
+        </Motion.header>
 
         <main className='max-w-7xl mx-auto py-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center'>
         
         {/* LEFT CONTENT */}
-        <motion.div 
+        <Motion.div 
          initial = {{opacity: 0 , x:-60}}
         animate = {{opacity:1 , x:0}}
         transition={{duration:0.7}}
@@ -65,7 +65,7 @@ function Auth() {
               bg-clip-text text-transparent'>
                 Unlock Smart <br /> AI Notes
               </h1>
-              <motion.button
+              <Motion.button
               onClick={handleGoogleAuth}
               whileHover={{
                 y:-10,
@@ -85,7 +85,7 @@ function Auth() {
                 Continue with Google
 
 
-              </motion.button>
+              </Motion.button>
 
               {authError && (
                 <p role="alert" className="mt-4 text-sm text-red-600">
@@ -102,7 +102,7 @@ function Auth() {
               </p>
               <p className='mt-4 text-sm text-gray-500'> Generate and organize your AI study notes instantly.</p>
 
-        </motion.div>
+        </Motion.div>
 
         {/* RIGHT CONTENT */}
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
@@ -122,7 +122,7 @@ function Auth() {
 }
 function Feature({icon , title , des}){
     return(
-        <motion.div 
+        <Motion.div 
         whileHover={{ y: -12, rotateX: 8, rotateY: -8, scale: 1.05 }}
        transition={{ type: "spring", stiffness: 200, damping: 18 }}
         className='relative rounded-2xl p-6
@@ -143,7 +143,7 @@ function Feature({icon , title , des}){
           
 
 
-        </motion.div>
+        </Motion.div>
     )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { motion } from "motion/react"
+import { motion as Motion } from "motion/react"
 import img from "../assets/img1.png"
 import Footer from '../components/Footer'
 import { useNavigate } from 'react-router-dom'

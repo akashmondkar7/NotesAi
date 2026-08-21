@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { serverUrl } from '../App'
-import { AnimatePresence, motion } from "motion/react"
+import { motion as Motion } from "motion/react"
 import { useNavigate } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import FinalResult from '../components/FinalResult'
