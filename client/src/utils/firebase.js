@@ -4,7 +4,7 @@ import {getAuth, GoogleAuthProvider} from "firebase/auth"
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
-  authDomain: "examnotesai-3fc66.firebaseapp.com",
+  authDomain: "notes-ai-mauve-tau.vercel.app",
   projectId: "examnotesai-3fc66",
   storageBucket: "examnotesai-3fc66.firebasestorage.app",
   messagingSenderId: "549868605364",
