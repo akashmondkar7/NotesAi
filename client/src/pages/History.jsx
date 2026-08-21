@@ -3,15 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { serverUrl } from '../App'
 import { AnimatePresence, motion } from "motion/react"
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import { GiHamburgerMenu } from "react-icons/gi";
 import FinalResult from '../components/FinalResult'
 
 function History() {
   const [topics, setTopics] = useState([])
    const navigate = useNavigate()
-  const { userData } = useSelector((state) => state.user)
-  const credits = userData.credits
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 const [activeNoteId, setActiveNoteId] = useState(null);
 
@@ -83,26 +80,6 @@ setLoading(false)
               <div className='flex items-center gap-4 '>
 
                 {!isSidebarOpen && <button onClick={()=>setIsSidebarOpen(true)} className='lg:hidden text-white text-2xl'><GiHamburgerMenu/></button>}
-                <button className='flex items-center gap-2 
-          px-4 py-2 rounded-full
-          bg-white/10
-          border border-white/20
-          text-white text-sm' onClick={() => navigate("/pricing")}>
-                  <span className='text-xl'>💠</span>
-                  <span>{credits}</span>
-                  <motion.span whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.97 }}
-                    className='ml-2 h-5 w-5 flex items-center justify-center
-                              rounded-full bg-white  text-xs font-bold'
-                  >
-                    ➕
-      
-                  </motion.span>
-      
-      
-                </button>
-                
-                
               </div>
 
 

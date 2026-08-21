@@ -96,17 +96,17 @@ function Auth() {
               <p className=' mt-6 max-w-xl text-lg
               bg-gradient-to-br from-gray-700 via-gray-500/80 to-gray-700
               bg-clip-text text-transparent'>
-                You get <span className="font-semibold">50 FREE credits</span> to create
+                Create unlimited
             exam notes, project notes, charts, graphs and
             download clean PDFs — instantly using AI.
               </p>
-              <p className='mt-4 text-sm text-gray-500'> Start with 50 free credits • Upgrade anytime for more credits • Instant access</p>
+              <p className='mt-4 text-sm text-gray-500'> Generate and organize your AI study notes instantly.</p>
 
         </motion.div>
 
         {/* RIGHT CONTENT */}
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
-            <Feature icon="🎁" title="50 Free Credits" des="Start with 50 credits to generate notes without paying."/>
+            <Feature icon="✨" title="Unlimited Notes" des="Generate as many AI notes as you need."/>
              <Feature icon="📘" title="Exam Notes" des="High-yield, revision-ready exam-oriented notes." />
           <Feature icon="📂" title="Project Notes" des="Well-structured documentation for assignments & projects." />
           <Feature icon="📊" title="Charts & Graphs" des="Auto-generated diagrams, charts and flow graphs." />

@@ -21,14 +21,6 @@ export const generateNotes = async (req, res) => {
             return res.status(400).json({ message: "user is not found" })
         }
 
-        if (user.credits < 10) {
-            user.isCreditAvailable = false
-            await user.save()
-            return res.status(403).json({
-                message: "Insufficient credits"
-            });
-        }
-
         const prompt = buildPrompt({
             topic,
             classLevel,
@@ -56,9 +48,6 @@ export const generateNotes = async (req, res) => {
         })
 
 
-        user.credits -= 10;
-        if (user.credits <= 0) user.isCreditAvailable = false;
-
         if (!Array.isArray(user.notes)) {
             user.notes = [];
         }
@@ -69,8 +58,7 @@ export const generateNotes = async (req, res) => {
 
         return res.status(200).json({
             data: aiResponse,
-      noteId: notes._id,
-      creditsLeft: user.credits
+            noteId: notes._id
         })
 
 
