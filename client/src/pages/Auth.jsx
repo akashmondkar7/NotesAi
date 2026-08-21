@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { motion as Motion } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
-import { auth, provider } from '../utils/firebase';
+import { auth, googleProvider } from '../utils/firebase';
 import axios from "axios"
 import { serverUrl } from '../App';
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ function Auth() {
   const handleGoogleAuth = async () => {
     setAuthError("")
     try {
-      const response = await signInWithPopup(auth,provider)
+      const response = await signInWithPopup(auth, googleProvider)
       const User = response.user
       const name = User.displayName
       const email = User.email
