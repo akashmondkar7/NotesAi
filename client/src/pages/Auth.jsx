@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { motion as Motion } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
 import { auth, googleProvider } from '../utils/firebase';
@@ -33,11 +32,7 @@ function Auth() {
   }
   return (
     <div className='min-h-screen overflow-hidden bg-white text-black px-8'>
-        <Motion.header 
-        initial = {{opacity: 0 , y:-15}}
-        animate = {{opacity:1 , y:0}}
-        transition={{duration:1.5}}
-       
+        <header
         className=" max-w-7xl mx-auto mt-8
           rounded-2xl
           bg-black/80 backdrop-blur-xl
@@ -50,31 +45,19 @@ function Auth() {
             bg-clip-text text-transparent'>ExamNotes AI</h1>
             <p className='text-sm text-gray-300 mt-1'>AI-powered exam-oriented notes & revision</p>
 
-        </Motion.header>
+        </header>
 
         <main className='max-w-7xl mx-auto py-10 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center'>
         
         {/* LEFT CONTENT */}
-        <Motion.div 
-         initial = {{opacity: 0 , x:-60}}
-        animate = {{opacity:1 , x:0}}
-        transition={{duration:0.7}}
-        >
+        <div>
             <h1 className='text-5xl lg:text-6xl font-extrabold leading-tight
               bg-gradient-to-br from-black/90 via-black/60 to-black/90
               bg-clip-text text-transparent'>
                 Unlock Smart <br /> AI Notes
               </h1>
-              <Motion.button
+              <button
               onClick={handleGoogleAuth}
-              whileHover={{
-                y:-10,
-                rotateX:8,
-                rotateY:-8,
-                scale:1.07
-              }}
-              whileTap={{scale:0.97}}
-              transition={{ type: "spring", stiffness: 200, damping: 18 }}
                className='mt-10 px-10 py-3 rounded-xl
               flex items-center gap-3
               bg-gradient-to-br from-black/90 via-black/80 to-black/90
@@ -85,7 +68,7 @@ function Auth() {
                 Continue with Google
 
 
-              </Motion.button>
+              </button>
 
               {authError && (
                 <p role="alert" className="mt-4 text-sm text-red-600">
@@ -102,7 +85,7 @@ function Auth() {
               </p>
               <p className='mt-4 text-sm text-gray-500'> Generate and organize your AI study notes instantly.</p>
 
-        </Motion.div>
+        </div>
 
         {/* RIGHT CONTENT */}
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-8'>
@@ -122,9 +105,7 @@ function Auth() {
 }
 function Feature({icon , title , des}){
     return(
-        <Motion.div 
-        whileHover={{ y: -12, rotateX: 8, rotateY: -8, scale: 1.05 }}
-       transition={{ type: "spring", stiffness: 200, damping: 18 }}
+        <div
         className='relative rounded-2xl p-6
         bg-gradient-to-br from-black/90 via-black/80 to-black/90
         backdrop-blur-2xl
@@ -143,7 +124,7 @@ function Feature({icon , title , des}){
           
 
 
-        </Motion.div>
+        </div>
     )
 }
 

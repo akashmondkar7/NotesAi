@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { AnimatePresence, motion } from "motion/react"
 import logo from "../assets/logo.png"
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
@@ -24,10 +23,7 @@ function Navbar() {
         }
     }
     return (
-        <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
+        <div
             className='relative z-20 mx-6 mt-6
         rounded-2xl
         bg-gradient-to-br from-black/90 via-black/80 to-black/90
@@ -46,10 +42,8 @@ function Navbar() {
             <div className='flex items-center gap-6 relative'>
                  <div className='relative'>
 
-                    <motion.div
+                    <div
                     onClick={()=>setShowProfile(!showProfile)}
-                     whileHover={{scale:1.1}}
-                    whileTap={{scale:0.97}}
                      className='flex items-center justify-center gap-1
                 px-4 py-2 rounded-full
                 bg-white/10
@@ -60,16 +54,11 @@ function Navbar() {
                     <span className='text-lg'>{userData?.name.slice(0,1).toUpperCase()}</span>
                    
 
-                    </motion.div>
-                    <AnimatePresence>
+                    </div>
                     
                     {showProfile && 
                   
-                    <motion.div 
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 10, scale: 1 }}
-                  exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
+                                        <div
                     className='absolute right-0 mt-4 w-52
                     rounded-2xl
                     bg-black/90 backdrop-blur-xl
@@ -84,15 +73,15 @@ function Navbar() {
 
 
 
-                    </motion.div>
-                    }</AnimatePresence>
+                    </div>
+                    }
 
                     
                 </div>
             </div>
 
 
-        </motion.div>
+        </div>
     )
 }
 

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from "motion/react"
 import { generateNotes } from '../services/api';
 function TopicForm({ setResult, setLoading, loading, setError }) {
   const [topic, setTopic] = useState("");
@@ -81,9 +80,7 @@ function TopicForm({ setResult, setLoading, loading, setError }) {
 
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+    <div
       className="
         rounded-2xl
         bg-gradient-to-br  from-black/90 via-black/80 to-black/90
@@ -139,10 +136,8 @@ function TopicForm({ setResult, setLoading, loading, setError }) {
         />
       </div>
 
-      <motion.button
+      <button
       onClick={handleSubmit}
-        whileHover={!loading ? { scale: 1.02 } : {}}
-        whileTap={!loading ? { scale: 0.95 } : {}}
         disabled={loading}
         className={`
     w-full mt-4
@@ -157,20 +152,18 @@ function TopicForm({ setResult, setLoading, loading, setError }) {
   `}>
         {loading ? "Generating Notes..." : "Generate Notes"}
 
-      </motion.button>
+      </button>
 
 
      { loading && 
      <div className='mt-4 space-y-2'>
 
       <div className='w-full h-2 rounded-full bg-white/10 overflow-hidden'>
-      <motion.div 
-      initial={{width:0}}
-      animate={{width : `${progress}%`}}
-      transition={{ ease: "easeOut", duration: 0.6 }}
+      <div
+      style={{ width: `${progress}%` }}
       className='h-full bg-gradient-to-r from-green-400 via-emerald-400 to-green-500'>
 
-      </motion.div>
+      </div>
       
       </div>
 
@@ -189,7 +182,7 @@ function TopicForm({ setResult, setLoading, loading, setError }) {
 
 
 
-    </motion.div>
+    </div>
   )
 }
 
