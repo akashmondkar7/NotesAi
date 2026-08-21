@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from "motion/react"
 import { FcGoogle } from "react-icons/fc";
 import { signInWithPopup } from 'firebase/auth';
@@ -9,9 +9,10 @@ import { useDispatch } from 'react-redux';
 import { setUserData } from '../redux/userSlice';
 function Auth() {
   const dispatch = useDispatch()
+  const [authError, setAuthError] = useState("")
 
   const handleGoogleAuth = async () => {
-    
+    setAuthError("")
     try {
       const response = await signInWithPopup(auth,provider)
       const User = response.user
@@ -22,7 +23,12 @@ function Auth() {
       })
       dispatch(setUserData(result.data))
     } catch (error) {
-      console.log(error)
+      console.error("Google authentication failed:", error)
+      setAuthError(
+        error.response?.data?.message ||
+        error.code ||
+        "Google sign-in failed. Please try again."
+      )
     }
   }
   return (
@@ -80,6 +86,12 @@ function Auth() {
 
 
               </motion.button>
+
+              {authError && (
+                <p role="alert" className="mt-4 text-sm text-red-600">
+                  Sign-in failed: {authError}
+                </p>
+              )}
 
               <p className=' mt-6 max-w-xl text-lg
               bg-gradient-to-br from-gray-700 via-gray-500/80 to-gray-700
