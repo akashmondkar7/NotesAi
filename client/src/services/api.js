@@ -19,7 +19,13 @@ export const generateNotes = async (payload) => {
         return result.data
 
     } catch (error) {
-        console.log(error)
+        console.error("Generate notes request failed:", {
+            message: error.message,
+            status: error.response?.status,
+            data: error.response?.data,
+            url: error.config?.url
+        })
+        throw error
     }
 }
 
@@ -40,7 +46,7 @@ export const downloadPdf = async (result) => {
     link.click();
 
     window.URL.revokeObjectURL(url);
-    } catch (error) {
+    } catch {
          throw new Error("PDF download failed");
 
     }

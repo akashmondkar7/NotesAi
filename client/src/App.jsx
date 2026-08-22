@@ -6,8 +6,7 @@ import { getCurrentUser } from './services/api'
 import { useDispatch, useSelector } from 'react-redux'
 import History from './pages/History'
 import Notes from './pages/Notes'
-export const serverUrl = "https://notesai-j7ux.onrender.com"
-
+export const serverUrl = import.meta.env.API_URL;
 function App() {
   const dispatch = useDispatch()
   useEffect(()=>{
